@@ -6,4 +6,65 @@ function wonderhoy(){
 	fastfetch --file ~/Documents/DevSpace/asciiart/emu_wonderhoy --logo-color-1 '1;95' --color '1;95'
 }
 
+compile() {
+    local keep=false
+    local file=""
 
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -k|--keep) keep=true;;
+            *) file="$1";;
+        esac
+        shift
+    done
+
+    if [[ -z "$file" ]]; then
+        echo "Usage: compile {file} [-k|--keep]"
+        return 1
+    fi
+
+    # Get file extension and base name
+    local extension="${file##*.}"
+    local filename="${file%.*}"
+
+    # Compilation and execution based on file extension
+    case "$extension" in
+        c|cpp)
+            local outfile="${filename}.out"
+            g++ "$file" -o "$outfile"
+            if [[ $? -ne 0 ]]; then
+                echo "Compilation failed."
+                return 1
+            fi
+            ./"$outfile"
+            ;;
+        py)
+            python3 "$file"
+            if [[ $? -ne 0 ]]; then
+                echo "Execution failed."
+                return 1
+            fi
+            ;;
+        rs)
+            rustc "$file"
+            if [[ $? -ne 0 ]]; then
+                echo "Compilation failed."
+                return 1
+            fi
+            ./"$filename"
+            ;;
+        *)
+            echo "Unsupported file type: .$extension"
+            return 1
+            ;;
+    esac
+
+    # Remove the output file unless the keep flag is set
+    if ! $keep && [[ "$extension" == "c" || "$extension" == "cpp" ]]; then
+        rm -f "${filename}.out"
+    elif ! $keep && [[ "$extension" == "rs" ]]; then
+        rm -f "$filename"
+    fi
+}
+alias cmpi='compile'
