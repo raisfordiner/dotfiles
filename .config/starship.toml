@@ -2,18 +2,18 @@ format = """\
 [╭╴](fg:arrow)\
 $username\
 $directory\
-$time\
 (\
     $git_branch\
     $git_status\
 )\
 (\
+	$rust\
+	$c\
     $python\
     $conda\
     $nodejs\
-)\
-$cmd_duration
-[╰─](fg:arrow)$character\
+)
+[╰──](fg:arrow)$character\
 """
 # Add the modules you need
 
@@ -71,13 +71,15 @@ os = "#a6e3a1"
 os_admin = "#a6e3a1"
 directory = "#cba6f7"
 time = "#89dceb"
-git = "#F5F5F5"
+git = "#b4befe"
 git_status = "#72FFD5"
 clang = "#67E3FF"
 java = "#FF52A3"
 python = "#B4F9F8"
 node = "#a6e3a1"
 conda = "#BAF5C0"
+rust = "#fab387"
+c = "#89b4fa"
 duration = "#91FFE7"
 text_color = "#1e1e2e"
 text_light = "#1e1e2e"
@@ -85,13 +87,13 @@ text_light = "#1e1e2e"
 [username]
 style_user = 'os'
 style_root = 'os_admin'
-format = '[]($style)[  Rice ](bg:$style fg:text_color)[]($style)'
+format = '[]($style)[   Rice ](bg:$style fg:text_color)[]($style)'
 disabled = false
 show_always = true
 
 [character]
-success_symbol = "[󰍟](fg:arrow)"
-error_symbol = "[󰍟](fg:red)"
+success_symbol = "[](fg:arrow)"
+error_symbol = "[](fg:red)"
 
 [directory]
 format = "[](fg:directory)[   $path ]($style)[$read_only]($read_only_style)[](fg:directory)"
@@ -127,26 +129,26 @@ disabled=true
 symbol = " "
 
 [package]
-disabled=true
+disabled=false
 
 [java]
-format = "[](fg:java)[ $symbol$version ](bg:java fg:text_color)[](fg:java)"
+format = "[](fg:java)[ $symbol ](bg:java fg:text_color)[](fg:java)"
 version_format = "${raw}"
 symbol = " "
-disabled = true
+disabled = false
 
 [nodejs]
-format = "[](fg:node)[ $symbol$version ]($style)[](fg:node)"
+format = "[](fg:node)[ $symbol]($style)"
 style = "bg:node fg:text_light"
 symbol = " "
 version_format = "${raw}"
 disabled=false
 
 [rust]
-format = "[](fg:rust)[ $symbol$version ](bg:rust fg:text_color)[](fg:rust)"
+format = "[](fg:rust)[ $symbol](bg:rust fg:text_color)[](fg:rust)"
 symbol = " "
 version_format = "${raw}"
-disabled=true
+disabled=false
 
 [python]
 disabled=false
@@ -163,10 +165,10 @@ disabled=false
 symbol = " "
 
 [c]
-format = "[](fg:clang)[ $symbol($version(-$name) ) ](bg:clang fg:text_color)[](fg:clang)"
+format = "[](fg:clang)[ $symbol](bg:clang fg:text_color)[](fg:clang)"
 symbol = " "
 version_format = "${raw}"
-disabled=true
+disabled=false
 
 [os.symbols]
 Alpine = " "
