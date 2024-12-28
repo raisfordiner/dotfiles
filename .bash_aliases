@@ -6,7 +6,8 @@ alias zed='flatpak run dev.zed.Zed'
 
 alias ff='fastfetch'
 
-alias ls='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize -F --no-permissions'
+alias ls='eza --color=always --icons=always --no-time --no-user --no-filesize -F --no-permissions'
+alias dir='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize -F'
 
 alias dev='cd ~/Documents/DevSpace && ls'
 alias home='cd ~'

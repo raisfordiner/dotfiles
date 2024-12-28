@@ -21,3 +21,5 @@ _darcs
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
+
+\.local 	# This folder is only to push to github
