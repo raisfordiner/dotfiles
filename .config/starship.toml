@@ -43,7 +43,7 @@ success_symbol = "[](fg:arrow)"
 error_symbol = "[](fg:red)"
 
 [directory]
-format = "[](fg:directory)[  $path]($style)[$read_only]($read_only_style)[](fg:directory)"
+format = "[](fg:directory)[  $path]($style bold)[$read_only]($read_only_style bold)[](fg:directory)"
 truncation_length = 30
 style = "fg:text_color bg:directory"
 read_only_style = "fg:text_color bg:directory"
@@ -53,11 +53,11 @@ truncate_to_repo = true
 read_only ="  "
 
 [git_branch]
-format = "─[](fg:git)[$symbol$branch ](fg:text_light bg:git)[](fg:git)"
+format = "─[](fg:git)[$symbol$branch ](fg:text_light bg:git bold)[](fg:git)"
 symbol = " "
 
 [git_status]
-format = '([](fg:git_status)[ $all_status$ahead_behind]($style)[](fg:git_status))'
+format = '([](fg:git_status)[ $all_status$ahead_behind]($style bold)[](fg:git_status))'
 style = "fg:text_light bg:git_status"
 
 [docker_context]

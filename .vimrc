@@ -1,4 +1,4 @@
-set guicursor=i:ver25-iCursor
+" set guicursor=i:ver25-iCursor
 " Set expandtab
 set smartindent
 set autoindent
@@ -8,6 +8,9 @@ set shiftwidth=4
 " Set lines nummbering: Relative with current line number
 set nu
 set rnu
+
+" Keep {n} lines visiable before scrolling
+set scrolloff=6
 
 " Set ui theme
 set termguicolors
@@ -24,7 +27,11 @@ function! g:FckThatMatchParen ()
     endif
 endfunction
 
+function! g:Clip ()
+	:w !xclip -selection clipboard
+endfunction
+
 augroup plugin_initialize
     autocmd!
-    autocmd VimEnter * call FckThatMatchParen()
+"    autocmd VimEnter * call FckThatMatchParen()
 augroup END
