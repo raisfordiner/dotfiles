@@ -18,3 +18,5 @@ alias py='python3'
 alias svi='sudo -E vi'
 
 alias tmux='echo "tmux f*cked up on this device, do not use it!"'
+
+alias vi='nvim '

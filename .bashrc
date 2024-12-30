@@ -13,7 +13,10 @@
 test -s ~/.alias && . ~/.alias || true
 eval "$(starship init bash)"
 
-export EDITOR=vim
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+
+export EDITOR=nvim
 
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
