@@ -2,6 +2,7 @@
 ------(For searching)
 --- + Vim setting
 --- + Bootstrap lazy.nvim
+--- + Init plugins
 --- + Setup plugins
 --- + Keys mod
 --- + Color scheme
@@ -47,7 +48,7 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 ------------------------------------------
 
------- Setup plugins --------------------
+------ Init plugins ----------------------
 require("lazy").setup({
   spec = {
     -- import your plugins
@@ -59,7 +60,13 @@ require("lazy").setup({
 })
 ------------------------------------------
 
------- Keys mod ------------
+------ Setup plugins ----------------------
+require("oil").setup({
+	view_options = { show_hidden = true }
+})
+------------------------------------------
+
+------ Keys mod --------------------------
 --- Telescope
 local telescope_builtin = require("telescope.builtin")
 vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, {})

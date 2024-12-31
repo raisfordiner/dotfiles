@@ -2,8 +2,8 @@ format = """\
 [╭─](fg:arrow)\
 $directory\
 (\
-    $git_branch\
-    $git_status\
+    $git_branch[](fg:git bg:git_status)\
+    $git_status[](fg:git_status)\
 )
 [╰─](fg:arrow)$character\
 """
@@ -53,11 +53,11 @@ truncate_to_repo = true
 read_only ="  "
 
 [git_branch]
-format = "─[](fg:git)[$symbol$branch ](fg:text_light bg:git bold)[](fg:git)"
+format = "─[](fg:git)[$symbol$branch](fg:text_light bg:git bold)[](fg:git)"
 symbol = " "
 
 [git_status]
-format = '([](fg:git_status)[ $all_status$ahead_behind]($style bold)[](fg:git_status))'
+format = '([](fg:git_status)[ $all_status$ahead_behind]($style bold))'
 style = "fg:text_light bg:git_status"
 
 [docker_context]

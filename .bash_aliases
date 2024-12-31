@@ -3,6 +3,8 @@ alias sudo='sudo '
 alias zpr='zypper'
 
 alias zed='flatpak run dev.zed.Zed'
+alias qute='qutebrowser'
+alias vieb='flatpak run dev.vieb.Vieb'
 
 alias ff='fastfetch'
 
