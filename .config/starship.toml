@@ -1,64 +1,53 @@
 format = """\
 [╭─](fg:arrow)\
-$directory\
+$directory[](fg:red)\
 (\
-    $git_branch[](fg:git bg:git_status)\
-    $git_status[](fg:git_status)\
+    $git_branch\
+    $git_status\
 )
-[╰─](fg:arrow)$character\
+[╰──](fg:arrow)$character\
 """
 # Add the modules you need
 
 # Disables the blank line at the start of the prompt
-add_newline = true
+# add_newline = true
 
-continuation_prompt = '  ▶ '
-# Palettes:
-#   old: the previous version.
-#   normal: dark gray / yellow / white palette.
-#   light: pastel light colors.
-# To change the colors: change to the corresponding palette.
-palette = "light"
+continuation_prompt = '   [▶](bold green) '
+palette = "mocha"
 
-[palettes.light]
-arrow = "#cdd6f4"
-os = "#a6e3a1"
-os_admin = "#a6e3a1"
-directory = "#cba6f7"
-time = "#89dceb"
-git = "#b4befe"
-git_status = "#94e2d5"
-text_color = "#1e1e2e"
-text_light = "#1e1e2e"
-
-[username]
-style_user = 'os'
-style_root = 'os_admin'
-format = '[]($style)[   Rice ](bg:$style fg:text_color)[]($style)'
-disabled = false
-show_always = true
+[palettes.mocha]
+black = "#1e1e2e" #Yes, black == base
+white = "#cdd6f4"
+red = "#e78284"
+blue = "#8caaee"
+mauve = "#ca9ee6"
+green = "#a6d189"
+base = "#1e1e2d"
+crust = "#11111b"
+mantle = "#181825"
+trans = "#1e1e2e"
 
 [character]
-success_symbol = "[](fg:arrow)"
-error_symbol = "[](fg:red)"
+success_symbol = "[](bold green)"
+error_symbol = "[](bold red)"
 
 [directory]
-format = "[](fg:directory)[  $path]($style bold)[$read_only]($read_only_style bold)[](fg:directory)"
-truncation_length = 30
-style = "fg:text_color bg:directory"
-read_only_style = "fg:text_color bg:directory"
-before_repo_root_style = "fg:text_color bg:directory"
-truncation_symbol = " /"
+format = "[](fg:red bg:trans)[](fg:base bg:red)[ $path ]($style bold)[](fg:base bg:red)[$read_only]($read_only_style bold)"
+truncation_length = 6
+style = "fg:red bg:base"
+read_only_style = "fg:base bg:red"
+before_repo_root_style = "fg:red bg:base"
+truncation_symbol = "../"
 truncate_to_repo = true
-read_only ="  "
+read_only ="  "
 
 [git_branch]
-format = "─[](fg:git)[$symbol$branch](fg:text_light bg:git bold)[](fg:git)"
+format = "─[](fg:mauve)[](fg:base bg:mauve)[ $symbol$branch ](fg:mauve bg:base bold)[](fg:base bg:mauve)"
 symbol = " "
 
 [git_status]
-format = '([](fg:git_status)[ $all_status$ahead_behind]($style bold))'
-style = "fg:text_light bg:git_status"
+format = '([ $all_status$ahead_behind ]($style bold)[](fg:mauve))'
+style = "fg:base bg:mauve"
 
 [docker_context]
 disabled=true
