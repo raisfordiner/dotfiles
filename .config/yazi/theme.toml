@@ -26,22 +26,22 @@ border_style  = { fg = "#7f849c" }
 syntect_theme = "~/.config/bat/themes/'Catppuccin Mocha.tmTheme'"
 
 [mode]
-normal_main = { fg = "#1e1e2e", bg = "#89b4fa", bold = true }
-normal_alt  = { fg = "#89b4fa", bg = "#313244"}
+normal_main = { fg = "white", bg = "#89b4fa", bold = true }
+normal_alt  = { fg = "#89b4fa", bg = "white"}
 
-select_main = { fg = "#1e1e2e", bg = "#a6e3a1", bold = true }
-select_alt  = { fg = "#a6e3a1", bg = "#313244"}
+select_main = { fg = "white", bg = "#a6e3a1", bold = true }
+select_alt  = { fg = "#a6e3a1", bg = "white"}
 
-unset_main  = { fg = "#1e1e2e", bg = "#f2cdcd", bold = true }
-unset_alt   = { fg = "#f2cdcd", bg = "#313244"}
+unset_main  = { fg = "white", bg = "#f2cdcd", bold = true }
+unset_alt   = { fg = "#f2cdcd", bg = "white"}
 
 [status]
 separator_open  = ""
 separator_close = ""
 
-progress_label  = { fg = "#ffffff", bold = true }
-progress_normal = { fg = "#89b4fa", bg = "#45475a" }
-progress_error  = { fg = "#f38ba8", bg = "#45475a" }
+progress_label  = { fg = "#1e1e2e", bold = true }
+progress_normal = { fg = "#89b4fa", bg = "#181825" }
+progress_error  = { fg = "#f38ba8", bg = "#181825" }
 
 perm_type  = { fg = "#89b4fa" }
 perm_read  = { fg = "#f9e2af" }

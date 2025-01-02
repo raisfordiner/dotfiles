@@ -3,6 +3,7 @@
 --- + Vim setting
 --- + Bootstrap lazy.nvim
 --- + Init plugins
+--- + Setup LSP
 --- + Setup plugins
 --- + Keys mod
 --- + Color scheme
@@ -55,15 +56,48 @@ require("lazy").setup({
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 	{ 'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }  },
-	{ 'stevearc/oil.nvim', opts = {}, dependencies = { { "echasnovski/mini.icons", opts = {} } }, }
+	{ 'stevearc/oil.nvim', opts = {}, dependencies = { { "echasnovski/mini.icons", opts = {} } }, },
+	{ "nvim-lualine/lualine.nvim" },
+	{
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	}
   },
 })
 ------------------------------------------
 
------- Setup plugins ----------------------
+------ Setup LSP -------------------------
+require("mason").setup()
+require("mason-lspconfig").setup{
+	ensure_installed = { "lua_ls", "clangd", "rust_analyzer"}
+}
+
+require("lspconfig").lua_ls.setup {}
+require("lspconfig").clangd.setup {}
+require("lspconfig").rust_analyzer.setup {}
+------------------------------------------
+
+------ Setup utils plugins ---------------
 require("oil").setup({
 	view_options = { show_hidden = true }
 })
+require("lualine").setup({
+	sections = {
+		lualine_a = {'mode'},
+		lualine_b = {'filename','searchcount'},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {'filetype'},
+		lualine_z = {'progress','location'}
+	}
+})
+
+--- Keymap for working with LSPs
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
+vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
 ------------------------------------------
 
 ------ Keys mod --------------------------
