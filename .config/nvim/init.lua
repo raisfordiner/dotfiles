@@ -4,9 +4,9 @@
 --- + Bootstrap lazy.nvim
 --- + Init plugins
 --- + Setup LSP
---- + Setup plugins
+--- + Setup utils plugins
 --- + Keys mod
---- + Color scheme
+--- + Look and feel
 ------------------------------------------
 
 
@@ -76,28 +76,18 @@ require("mason-lspconfig").setup{
 require("lspconfig").lua_ls.setup {}
 require("lspconfig").clangd.setup {}
 require("lspconfig").rust_analyzer.setup {}
+
+--- Keymap for working with LSPs --------
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
+vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
 ------------------------------------------
 
 ------ Setup utils plugins ---------------
 require("oil").setup({
 	view_options = { show_hidden = true }
 })
-require("lualine").setup({
-	sections = {
-		lualine_a = {'mode'},
-		lualine_b = {'filename','searchcount'},
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = {'filetype'},
-		lualine_z = {'progress','location'}
-	}
-})
-
---- Keymap for working with LSPs
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
-vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
 ------------------------------------------
 
 ------ Keys mod --------------------------
@@ -114,10 +104,22 @@ vim.keymap.set('n', '<leader>fk', telescope_builtin.keymaps, {})
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 ------------------------------------------
 
------- Color scheme ----------------------
---- Catppuccin
+------ Look and feel ----------------------
+--- Catppuccin color scheme
 require("catppuccin").setup({
 	transparent_background = true,
 })
 vim.cmd.colorscheme("catppuccin")
+
+-- Lualine
+require("lualine").setup({
+	sections = {
+		lualine_a = {'mode'},
+		lualine_b = {'filename','searchcount'},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {'filetype'},
+		lualine_z = {'progress','location'}
+	}
+})
 ------------------------------------------

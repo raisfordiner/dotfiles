@@ -4,10 +4,10 @@ This repository contains my personal configuration files (dotfiles) for various 
 
 ## Contents
 
-- **Shell Configuration**: `.bashrc`, `.zshrc`
+- **Shell Configuration**: `.bashrc`
 - **Editor Settings**: `.vimrc`, `.config/nvim/init.vim`
 - **Git Configuration**: `.gitconfig`
-- **Terminal Settings**: `.tmux.conf`
+- **Terminal Settings**: `.config/kitty/kitty.conf`
 
 ## Installation
 
@@ -35,19 +35,13 @@ This repository contains my personal configuration files (dotfiles) for various 
 
 ## Customization
 
-Feel free to modify any of the configuration files to suit your preferences. If you make changes, remember to commit them back to this repository:
-
+I'm suck. Therefore, you go make your own then sned me your modded configs
 ```bash
 git add <file>
 git commit -m "Update <file>"
 git push
 ```
 
-## Backup and Sync
-
-You can use this repository to backup and sync your dotfiles across multiple machines. Just clone it on each machine and use `GNU Stow` to set up the configurations.
-
 ## License
 
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
+What's a license?
