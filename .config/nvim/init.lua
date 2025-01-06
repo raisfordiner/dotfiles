@@ -5,7 +5,8 @@
 --- + Init plugins
 --- + Setup LSP
 --- + Setup utils plugins
---- + Keys mod
+--- + Custom keybindings
+--- + Custom commands
 --- + Look and feel
 ------------------------------------------
 
@@ -13,8 +14,8 @@
 ------ Vim settings ----------------------
 -- set guicursor=i:ver25-iCursor
 -- set expandtab
-vim.cmd("set smartindent")
 vim.cmd("set autoindent")
+vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.cmd("set softtabstop=4")
@@ -29,6 +30,7 @@ vim.cmd("set scrolloff=6")
 --- Leaders
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
 ------------------------------------------
 
 ------ Bootstrap lazy.nvim ---------------
@@ -62,7 +64,7 @@ require("lazy").setup({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
-	}
+	},
   },
 })
 ------------------------------------------
@@ -70,18 +72,31 @@ require("lazy").setup({
 ------ Setup LSP -------------------------
 require("mason").setup()
 require("mason-lspconfig").setup{
-	ensure_installed = { "lua_ls", "clangd", "rust_analyzer"}
+	ensure_installed = { "lua_ls","clangd","rust_analyzer"}
 }
 
 require("lspconfig").lua_ls.setup {}
 require("lspconfig").clangd.setup {}
 require("lspconfig").rust_analyzer.setup {}
 
---- Keymap for working with LSPs --------
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
-vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
+--- Config LSP - Vim
+local _border = "rounded"
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = _border
+  }
+)
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+  vim.lsp.handlers.signature_help, {
+    border = _border
+  }
+)
+
+vim.diagnostic.config{
+  float={border=_border}
+}
 ------------------------------------------
 
 ------ Setup utils plugins ---------------
@@ -90,19 +105,43 @@ require("oil").setup({
 })
 ------------------------------------------
 
------- Keys mod --------------------------
+------ Custom keybindings --------------------------
+--- Vim keymaps
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', 'n', 'nzz')
+vim.keymap.set('n', 'N', 'Nzz')
+vim.keymap.set({'n','v'}, '<leader>p', '\"_dP')
+vim.keymap.set({'n','v'}, '<leader>d', '\"_d')
+vim.keymap.set({'n','v'}, '<leader>c', '\"_c')
+vim.keymap.set({'n','v'}, '<leader>x', '\"_x')
+
 --- Telescope
 local telescope_builtin = require("telescope.builtin")
-vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
-vim.keymap.set('n', '<leader>fr', telescope_builtin.registers, {})
-vim.keymap.set('n', '<leader>ft', telescope_builtin.treesitter, {})
-vim.keymap.set('n', '<leader>fk', telescope_builtin.keymaps, {})
+vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = "Find files" })
+vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, { desc = "Grep content in files" })
+vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = "List of buffers" })
+vim.keymap.set('n', '<leader>fr', telescope_builtin.registers, { desc = "List of registers" })
+vim.keymap.set('n', '<leader>ft', telescope_builtin.treesitter, { desc = "Element via TSP" })
+vim.keymap.set('n', '<leader>fk', telescope_builtin.keymaps, { desc = "List of keymaps" })
 
 --- Oil
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+--- Keymap for working with LSPs
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {})
+vim.keymap.set('n', '<leader>gD', vim.lsp.buf.declaration, {})
+vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
 ------------------------------------------
+
+----- Custom commands ----------------------
+vim.api.nvim_create_user_command(
+	'GotoError',
+	vim.diagnostic.goto_next,
+	{}
+)
+-------------------------------------------
 
 ------ Look and feel ----------------------
 --- Catppuccin color scheme
@@ -115,7 +154,7 @@ vim.cmd.colorscheme("catppuccin")
 require("lualine").setup({
 	sections = {
 		lualine_a = {'mode'},
-		lualine_b = {'filename','searchcount'},
+		lualine_b = {'filename','diagnostics','searchcount'},
 		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {'filetype'},

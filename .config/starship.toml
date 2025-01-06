@@ -2,15 +2,13 @@ format = """\
 [╭─](fg:arrow)\
 $directory[](fg:red)\
 (\
-    $git_branch\
-    $git_status\
+    $git_branch[](fg:base bg:mauve)\
+    $git_status[](fg:mauve)\
 )
 [╰──](fg:arrow)$character\
 """
-# Add the modules you need
 
-# Disables the blank line at the start of the prompt
-# add_newline = true
+add_newline = true
 
 continuation_prompt = '   [▶](bold green) '
 palette = "mocha"
@@ -32,7 +30,7 @@ success_symbol = "[](bold green)"
 error_symbol = "[](bold red)"
 
 [directory]
-format = "[](fg:red bg:trans)[](fg:base bg:red)[ $path ]($style bold)[](fg:base bg:red)[$read_only]($read_only_style bold)"
+format = "[](fg:red)[](fg:base bg:red)[ $path ]($style bold)[](fg:base bg:red)[$read_only]($read_only_style bold)"
 truncation_length = 6
 style = "fg:red bg:base"
 read_only_style = "fg:base bg:red"
@@ -42,11 +40,11 @@ truncate_to_repo = true
 read_only ="  "
 
 [git_branch]
-format = "─[](fg:mauve)[](fg:base bg:mauve)[ $symbol$branch ](fg:mauve bg:base bold)[](fg:base bg:mauve)"
+format = "─[](fg:mauve)[](fg:base bg:mauve)[ $symbol$branch ](fg:mauve bg:base bold)"
 symbol = " "
 
 [git_status]
-format = '([ $all_status$ahead_behind ]($style bold)[](fg:mauve))'
+format = '([ $all_status$ahead_behind ]($style bold))'
 style = "fg:base bg:mauve"
 
 [docker_context]
