@@ -25,7 +25,7 @@ vim.cmd("set nu")
 vim.cmd("set rnu")
 
 --- " Keep {n} lines visiable before scrolling "
-vim.cmd("set scrolloff=6")
+vim.cmd("set scrolloff=8")
 
 --- Leaders
 vim.g.mapleader = " "

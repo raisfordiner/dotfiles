@@ -10,8 +10,11 @@
 # here, since multilingual X sessions would not work properly if LANG is over-
 # ridden in every subshell.
 
+# Some shell setting
+set -o ignoreeof
+
 test -s ~/.alias && . ~/.alias || true
-eval "$(starship init bash)"
+[ "$SIMPLE_SHELL" = "false" ] || eval "$(starship init bash)"
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
