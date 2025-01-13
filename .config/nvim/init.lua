@@ -58,6 +58,7 @@ require("lazy").setup({
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 	{ 'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }  },
+    { "nvim-telescope/telescope-file-browser.nvim" },
 	{ 'stevearc/oil.nvim', opts = {}, dependencies = { { "echasnovski/mini.icons", opts = {} } }, },
 	{ "nvim-lualine/lualine.nvim" },
 	{
@@ -65,6 +66,21 @@ require("lazy").setup({
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 	},
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equivalent to setup({}) function
+    },
+    {
+        "letieu/btw.nvim",
+        config = function() require('btw').setup() end,
+    },
+    {
+        "ggandor/leap.nvim",
+        dependencies = { "tpope/vim-repeat" }
+    },
   },
 })
 ------------------------------------------
@@ -103,6 +119,10 @@ vim.diagnostic.config{
 require("oil").setup({
 	view_options = { show_hidden = true }
 })
+
+require("telescope").load_extension "file_browser"
+
+require("leap").add_default_mappings()
 ------------------------------------------
 
 ------ Custom keybindings --------------------------
@@ -114,7 +134,8 @@ vim.keymap.set('n', 'N', 'Nzz')
 vim.keymap.set({'n','v'}, '<leader>p', '\"_dP')
 vim.keymap.set({'n','v'}, '<leader>d', '\"_d')
 vim.keymap.set({'n','v'}, '<leader>c', '\"_c')
-vim.keymap.set({'n','v'}, '<leader>x', '\"_x')
+vim.keymap.set({'n','v'}, 'x', '\"_x')
+vim.keymap.set({'n','v'}, 'X', '\"_x')
 
 --- Telescope
 local telescope_builtin = require("telescope.builtin")
@@ -124,6 +145,7 @@ vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = "List of b
 vim.keymap.set('n', '<leader>fr', telescope_builtin.registers, { desc = "List of registers" })
 vim.keymap.set('n', '<leader>ft', telescope_builtin.treesitter, { desc = "Element via TSP" })
 vim.keymap.set('n', '<leader>fk', telescope_builtin.keymaps, { desc = "List of keymaps" })
+vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", {desc = "Open file navigation"})
 
 --- Oil
 vim.keymap.set("n", "<leader>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
@@ -137,9 +159,9 @@ vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
 
 ----- Custom commands ----------------------
 vim.api.nvim_create_user_command(
-	'GotoError',
-	vim.diagnostic.goto_next,
-	{}
+	'GotoEr',
+    vim.diagnostic.goto_next,
+    {}
 )
 -------------------------------------------
 
