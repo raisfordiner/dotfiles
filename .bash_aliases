@@ -4,7 +4,7 @@ alias zpr='zypper'
 
 alias zed='flatpak run dev.zed.Zed'
 alias qute='qutebrowser'
-alias vieb='cd Application/ongithub/Vieb && npm start'
+alias vieb='cd ~/Application/ongithub/Vieb && npm start'
 
 alias ff='fastfetch'
 
