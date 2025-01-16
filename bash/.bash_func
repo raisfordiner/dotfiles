@@ -1,7 +1,9 @@
+# j4f
 function wonderhoy(){
 	fastfetch --file ~/Documents/DevSpace/asciiart/emu_wonderhoy --logo-color-1 '1;95' --color '1;95'
 }
 
+# Unified command to run script in multiple languages
 run() {
     local keep=false
     local file=""
@@ -72,4 +74,14 @@ function y() {
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+# frontend for cht.sh
+chtsh() {
+    local languages=`echo "c cpp rust" | tr ' ' '\n'`
+    local selected=`echo "$languages" | fzf`
+    echo selected: $selected
+    local query
+    read -p "query: " query
+    tmux neww bash -c "curl cht.sh/$selected/`echo $query | tr ' ' '+'` | bat --paging=always"
 }
