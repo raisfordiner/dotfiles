@@ -11,7 +11,7 @@
 # ridden in every subshell.
 
 # Some shell setting
-set -o ignoreeof
+set -o ignoreeof #Disable the ctrl-d (Avoid exit on accident), use 'exit' command instead
 
 test -s ~/.alias && . ~/.alias || true
 [ "$SIMPLE_SHELL" = "false" ] || eval "$(starship init bash)"
@@ -19,21 +19,13 @@ test -s ~/.alias && . ~/.alias || true
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
 
-export EDITOR=nvim
+export EDITOR=nvim  #Neovim as default editor
 
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
 
-source ~/.bash_func
+source ~/.bash_func #Utils functions using bashscript
 
 . "$HOME/.cargo/env"
 
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}

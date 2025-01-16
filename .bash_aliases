@@ -25,3 +25,5 @@ alias svi='sudo -E vi'
 alias ze='zellij'
 
 alias vi='nvim '
+
+alias lg='lazygit'
