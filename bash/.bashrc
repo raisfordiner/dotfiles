@@ -29,3 +29,5 @@ source ~/.bash_func #Utils functions using bashscript
 
 . "$HOME/.cargo/env"
 
+# export $PATH
+export PATH="$PATH:~/ShellScripts/run"
