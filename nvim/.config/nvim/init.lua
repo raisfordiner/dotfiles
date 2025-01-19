@@ -82,6 +82,17 @@ require("lazy").setup({
         dependencies = { "tpope/vim-repeat" }
     },
     { 'echasnovski/mini.ai', version = '*' },
+    {
+        "kawre/leetcode.nvim",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+        },
+        opts = {
+            -- configuration goes here
+        },
+    },
   },
 })
 ------------------------------------------
@@ -89,12 +100,18 @@ require("lazy").setup({
 ------ Setup LSP -------------------------
 require("mason").setup()
 require("mason-lspconfig").setup{
-	ensure_installed = { "lua_ls","clangd","rust_analyzer"}
+	ensure_installed = {
+        "lua_ls",
+        "clangd",
+        "rust_analyzer",
+        "gopls",
+    }
 }
 
 require("lspconfig").lua_ls.setup {}
 require("lspconfig").clangd.setup {}
 require("lspconfig").rust_analyzer.setup {}
+require("lspconfig").gopls.setup {}
 
 --- Config LSP - Vim
 local _border = "rounded"
@@ -118,7 +135,16 @@ vim.diagnostic.config{
 
 ------ Setup utils plugins ---------------
 require("oil").setup({
-	view_options = { show_hidden = true }
+	view_options = {
+        show_hidden = true
+    },
+    sort = {
+      -- sort order can be "asc" or "desc"
+      -- see :help oil-columns to see which columns are sortable
+      { "type", "asc" },
+      { "icon", "asc" },
+      { "name", "asc" },
+    },
 })
 
 require("telescope").load_extension "file_browser"

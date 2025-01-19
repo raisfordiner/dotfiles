@@ -4,7 +4,8 @@ $directory[](fg:red)\
 (\
     $git_branch[](fg:base bg:mauve)\
     $git_status[](fg:mauve)\
-)
+)\
+$docker_context
 [╰──](fg:arrow)$character\
 """
 
@@ -48,5 +49,13 @@ format = '([ $all_status$ahead_behind ]($style bold))'
 style = "fg:base bg:mauve"
 
 [docker_context]
-disabled=true
+disabled=false
 symbol = " "
+detect_files = [
+    'docker-compose.yml', 
+    'docker-compose.yaml', 
+    'Dockerfile',
+    '.dockerignore'
+]
+style = 'blue bold'
+format = "─[](fg:blue)[](fg:base bg:blue)[ $symbol$context ](fg:blue bg:base bold)[](fg:base bg:blue)[](fg:blue)"
