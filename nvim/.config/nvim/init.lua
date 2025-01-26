@@ -53,47 +53,74 @@ vim.opt.runtimepath:prepend(lazypath)
 
 ------ Init plugins ----------------------
 require("lazy").setup({
-  spec = {
-    -- import your plugins
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-	{ 'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }  },
-    { "nvim-telescope/telescope-file-browser.nvim" },
-	{ 'stevearc/oil.nvim', opts = {}, dependencies = { { "echasnovski/mini.icons", opts = {} } }, },
-	{ "nvim-lualine/lualine.nvim" },
-	{
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
-	},
-    {
-        'windwp/nvim-autopairs',
-        event = "InsertEnter",
-        config = true
-        -- use opts = {} for passing setup options
-        -- this is equivalent to setup({}) function
-    },
-    {
-        "letieu/btw.nvim",
-        config = function() require('btw').setup() end,
-    },
-    {
-        "ggandor/leap.nvim",
-        dependencies = { "tpope/vim-repeat" }
-    },
-    { 'echasnovski/mini.ai', version = '*' },
-    {
-        "kawre/leetcode.nvim",
-        dependencies = {
-            "nvim-telescope/telescope.nvim",
-            "nvim-lua/plenary.nvim",
-            "MunifTanjim/nui.nvim",
+    spec = {
+        -- import your plugins
+        { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+        { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+        { 'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }  },
+        { 'stevearc/oil.nvim', opts = {}, dependencies = { { "echasnovski/mini.icons", opts = {} } }, },
+        { "nvim-lualine/lualine.nvim" },
+        {
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+            "neovim/nvim-lspconfig",
         },
-        opts = {
-            -- configuration goes here
+        {
+            'windwp/nvim-autopairs',
+            event = "InsertEnter",
+            config = true
+            -- use opts = {} for passing setup options
+            -- this is equivalent to setup({}) function
         },
+        {
+            "letieu/btw.nvim",
+            config = function() require('btw').setup() end,
+        },
+        {
+            "ggandor/leap.nvim",
+            dependencies = { "tpope/vim-repeat" }
+        },
+        { 'echasnovski/mini.ai', version = '*' },
+        {
+            "kawre/leetcode.nvim",
+            dependencies = {
+                "nvim-telescope/telescope.nvim",
+                "nvim-lua/plenary.nvim",
+                "MunifTanjim/nui.nvim",
+            },
+            opts = {
+                -- configuration goes here
+            },
+        },
+        {
+            "christoomey/vim-tmux-navigator",
+            cmd = {
+                "TmuxNavigateLeft",
+                "TmuxNavigateDown",
+                "TmuxNavigateUp",
+                "TmuxNavigateRight",
+                "TmuxNavigatePrevious",
+                "TmuxNavigatorProcessList",
+            },
+            keys = {
+                { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+                { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+                { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+                { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+                { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+            },
+        },
+        {
+            "nvim-neo-tree/neo-tree.nvim",
+            branch = "v3.x",
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+                "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+                "MunifTanjim/nui.nvim",
+                -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
+            }
+        }
     },
-  },
 })
 ------------------------------------------
 
@@ -147,8 +174,6 @@ require("oil").setup({
     },
 })
 
-require("telescope").load_extension "file_browser"
-
 require("leap").add_default_mappings()
 
 require("mini.ai").setup()
@@ -179,10 +204,13 @@ vim.keymap.set('n', '<leader>fgc', telescope_builtin.git_commits, { desc = 'Git 
 vim.keymap.set('n', '<leader>fgb', telescope_builtin.git_branches, { desc = 'Git branches'})
 vim.keymap.set('n', '<leader>fgs', telescope_builtin.git_status, { desc = 'Git status'})
 vim.keymap.set('n', '<leader>fgx', telescope_builtin.git_stash, { desc = 'Git stash'})
-vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", {desc = "Open file navigation"})
 
 --- Oil
 vim.keymap.set("n", "<leader>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+--- Neotree
+vim.keymap.set("n", "<leader>b", ":Neotree toggle float<CR>", { desc = "Toggle Neotree floating" })
+vim.keymap.set("n", "<leader>B", ":Neotree toggle left<CR>", { desc = "Toggle Neotree on left" })
 
 --- Keymap for working with LSPs
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
@@ -215,6 +243,7 @@ require("lualine").setup({
 		lualine_x = {},
 		lualine_y = {'filetype'},
 		lualine_z = {'progress','location'}
-	}
+	},
+    extensions = { 'neo-tree', 'oil' }
 })
 ------------------------------------------
