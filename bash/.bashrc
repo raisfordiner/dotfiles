@@ -31,3 +31,6 @@ source ~/.bash_func #Utils functions using bashscript
 
 # export $PATH
 export PATH="$PATH:~/ShellScripts/run"
+
+#Auto run tmux
+[ -z "$TMUX" ] && { tmux at || exec tmux new; }
