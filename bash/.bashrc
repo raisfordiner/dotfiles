@@ -27,10 +27,7 @@ fi
 
 source ~/.bash_func #Utils functions using bashscript
 
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
 # export $PATH
 export PATH="$PATH:~/ShellScripts/run"
-
-#Auto run tmux
-[ -z "$TMUX" ] && { tmux at || exec tmux new; }

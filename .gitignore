@@ -2,3 +2,4 @@
 *.swp
 .luarc.json
 ./tmux/.config/tmux/plugins
+bk-collector/*
