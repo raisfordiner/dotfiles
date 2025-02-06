@@ -5,7 +5,8 @@ $directory[](fg:red)\
     $git_branch[](fg:base bg:mauve)\
     $git_status[](fg:mauve)\
 )\
-$docker_context
+$docker_context\
+$python
 [╰──](fg:arrow)$character\
 """
 
@@ -49,7 +50,7 @@ format = '([ $all_status$ahead_behind ]($style bold))'
 style = "fg:base bg:mauve"
 
 [docker_context]
-disabled=false
+disabled=true
 symbol = " "
 detect_files = [
     'docker-compose.yml', 
@@ -59,3 +60,11 @@ detect_files = [
 ]
 style = 'blue bold'
 format = "─[](fg:blue)[](fg:base bg:blue)[ $symbol$context ](fg:blue bg:base bold)[](fg:base bg:blue)[](fg:blue)"
+
+[python]
+disabled=false
+symbol = ""
+style = 'green bold'
+detect_extensions = []
+detect_files = []
+format = "─[](fg:green)[](fg:base bg:green)[ $virtualenv ](fg:green bg:base bold)[](fg:base bg:green)[](fg:green)"
