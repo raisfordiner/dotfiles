@@ -1,6 +1,26 @@
-# j4f
-function wonderhoy(){
-	fastfetch --file ~/Documents/DevSpace/asciiart/emu_wonderhoy --logo-color-1 '1;95' --color '1;95'
+# Quick load for ollama
+llm() {
+    case $1 in
+    "run")
+        local num=$2
+        local up=$((num+1))
+        local model=`ollama ls | head -n$up | tail -n1 | cut -d " " -f1`
+        ollama run $model
+        ;;
+    "stop")
+        local num=$2
+        local up=$((num+1))
+        local model=`ollama ls | head -n$up | tail -n1 | cut -d " " -f1`
+        ollama stop $model
+        ;;
+    "list")
+        ollama ls
+        ;;
+    *)
+        echo -n "I don't understand you!!"
+        echo -n "Available args: run, stop, list"
+        ;;
+    esac
 }
 
 # Unified command to run script in multiple languages

@@ -25,7 +25,7 @@ if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
 
-source ~/.bash_func #Utils functions using bashscript
+source ~/.bash_functions #Utils functions using bashscript
 
 # . "$HOME/.cargo/env"
 

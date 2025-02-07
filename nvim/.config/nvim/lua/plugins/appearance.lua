@@ -37,5 +37,15 @@ return {
                 extensions = { 'neo-tree', 'oil' }
             })
         end
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
+        config = function()
+            require("ibl").setup {
+                scope = { enabled = false }
+            }
+        end
     }
 }
