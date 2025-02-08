@@ -1,0 +1,13 @@
+{
+    "immain": {
+        "prefix": "immain",
+        "body": [
+            "package main",
+            "",
+            "func main() {",
+            "",            
+            "}"
+        ]
+    }
+}
+
