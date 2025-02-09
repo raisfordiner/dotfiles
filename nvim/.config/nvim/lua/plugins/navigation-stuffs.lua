@@ -1,9 +1,11 @@
 return {
     {
         "ggandor/leap.nvim",
-        dependencies = { "tpope/vim-repeat" },
+        dependencies = {},
         config = function()
             require("leap").add_default_mappings()
+            local opts = require("leap").opts
+            opts.safe_labels = {}
         end
     },
 }
