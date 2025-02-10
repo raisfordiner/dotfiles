@@ -16,6 +16,10 @@ vim.cmd("set rnu")
 --- " Keep {n} lines visiable before scrolling "
 vim.cmd("set scrolloff=8")
 
+--- No timmeout on key sequence
+vim.cmd("set notimeout")
+vim.cmd("set ttimeout")
+
 --- Leaders
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -33,6 +37,8 @@ vim.keymap.set({'n','v'}, '<leader>D', '\"_d')
 vim.keymap.set({'n','v'}, 'c', '\"_c')
 vim.keymap.set({'n','v'}, 'x', '\"_x')
 vim.keymap.set({'n','v'}, 'X', '\"_x')
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 ------------------------------------------
 
 ----- Custom commands ----------------------

@@ -4,6 +4,18 @@ return {
         tag = '0.1.8',
         dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
+            require("telescope").setup{
+                defaults = {
+                    layout_strategy = 'flex',
+                    layout_config = {
+                        preview_cutoff = 0,
+                        vertical = {
+                            height = 0.95,
+                        }
+                    },
+                },
+            }
+
             local builtin = require("telescope.builtin")
             vim.keymap.set(
                 'n',

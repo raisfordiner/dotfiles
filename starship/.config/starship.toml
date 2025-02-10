@@ -1,13 +1,13 @@
 format = """\
-[╭─](fg:arrow)\
-$directory[](fg:red)\
+[╭─](fg:sub)\
+$directory\
 (\
     $git_branch[](fg:base bg:mauve)\
     $git_status[](fg:mauve)\
 )\
 $docker_context\
 $python
-[╰──](fg:arrow)$character\
+[╰──](fg:sub)$character\
 """
 
 add_newline = true
@@ -18,8 +18,10 @@ palette = "mocha"
 [palettes.mocha]
 black = "#1e1e2e" #Yes, black == base
 white = "#cdd6f4"
+sub = "#6c7086"
 red = "#e78284"
 blue = "#8caaee"
+sky = "#89dceb"
 mauve = "#ca9ee6"
 green = "#a6d189"
 base = "#1e1e2d"
@@ -32,17 +34,17 @@ success_symbol = "[](bold green)"
 error_symbol = "[](bold red)"
 
 [directory]
-format = "[](fg:red)[](fg:base bg:red)[ $path ]($style bold)[](fg:base bg:red)[$read_only]($read_only_style bold)"
+format = "[](fg:blue)[](fg:base bg:blue)[ $path ]($style bold)[](fg:base bg:blue)[$read_only]($read_only_style bold)[](fg:blue)"
 truncation_length = 6
-style = "fg:red bg:base"
-read_only_style = "fg:base bg:red"
-before_repo_root_style = "fg:red bg:base"
+style = "fg:blue bg:base"
+read_only_style = "fg:base bg:blue"
+before_repo_root_style = "fg:blue bg:base"
 truncation_symbol = "../"
 truncate_to_repo = true
 read_only ="  "
 
 [git_branch]
-format = "─[](fg:mauve)[](fg:base bg:mauve)[ $symbol$branch ](fg:mauve bg:base bold)"
+format = "[─](fg:sub)[](fg:mauve)[](fg:base bg:mauve)[ $symbol$branch ](fg:mauve bg:base bold)"
 symbol = " "
 
 [git_status]
@@ -59,7 +61,7 @@ detect_files = [
     '.dockerignore'
 ]
 style = 'blue bold'
-format = "─[](fg:blue)[](fg:base bg:blue)[ $symbol$context ](fg:blue bg:base bold)[](fg:base bg:blue)[](fg:blue)"
+format = "─(fg:sub)[](fg:blue)[](fg:base bg:blue)[ $symbol$context ](fg:blue bg:base bold)[](fg:base bg:blue)[](fg:blue)"
 
 [python]
 disabled=false
@@ -67,4 +69,4 @@ symbol = ""
 style = 'green bold'
 detect_extensions = []
 detect_files = []
-format = "─[](fg:green)[](fg:base bg:green)[ $virtualenv ](fg:green bg:base bold)[](fg:base bg:green)[](fg:green)"
+format = "─(fg:sub)[](fg:green)[](fg:base bg:green)[ $virtualenv ](fg:green bg:base bold)[](fg:base bg:green)[](fg:green)"
