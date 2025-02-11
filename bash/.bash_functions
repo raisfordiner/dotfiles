@@ -16,6 +16,9 @@ llm() {
     "list")
         ollama ls
         ;;
+    "agent")
+        ~/AnythingLLMDesktop/start
+        ;;
     *)
         echo -n "I don't understand you!!"
         echo -n "Available args: run, stop, list"

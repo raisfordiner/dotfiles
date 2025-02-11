@@ -16,7 +16,7 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 ------------------------------------------
 
+-- Keep this exact order for good
 require("config.option")
 require("lazy").setup("plugins")
 require("config.vim-lsp")
---- Config LSP - Vim

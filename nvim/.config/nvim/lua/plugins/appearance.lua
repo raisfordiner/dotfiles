@@ -11,16 +11,6 @@ return {
 		end,
 	},
 	{
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup({
-				"html",
-				"css",
-				"js",
-			}, { names = false })
-		end,
-	},
-	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
 			local function vim_logo()
