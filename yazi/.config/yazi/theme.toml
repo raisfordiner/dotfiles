@@ -1,8 +1,8 @@
 [manager]
 cwd = { fg = "#94e2d5" }
 
-hovered         = { fg = "#1e1e2e", bg = "#89b4fa" }
-preview_hovered = { fg = "#1e1e2e", bg = "#cdd6f4" }
+hovered         = { fg = "#1e1e2d", bg = "#89b4fa" }
+preview_hovered = { fg = "#1e1e2d", bg = "#cdd6f4" }
 
 find_keyword  = { fg = "#f9e2af", italic = true }
 find_position = { fg = "#f5c2e7", bg = "reset", italic = true }
@@ -12,13 +12,13 @@ marker_cut      = { fg = "#f38ba8", bg = "#f38ba8" }
 marker_marked   = { fg = "#94e2d5", bg = "#94e2d5" }
 marker_selected = { fg = "#89b4fa", bg = "#89b4fa" }
 
-tab_active   = { fg = "#1e1e2e", bg = "#cdd6f4" }
+tab_active   = { fg = "#1e1e2d", bg = "#cdd6f4" }
 tab_inactive = { fg = "#cdd6f4", bg = "#45475a" }
 tab_width    = 1
 
-count_copied   = { fg = "#1e1e2e", bg = "#a6e3a1" }
-count_cut      = { fg = "#1e1e2e", bg = "#f38ba8" }
-count_selected = { fg = "#1e1e2e", bg = "#89b4fa" }
+count_copied   = { fg = "#1e1e2d", bg = "#a6e3a1" }
+count_cut      = { fg = "#1e1e2d", bg = "#f38ba8" }
+count_selected = { fg = "#1e1e2d", bg = "#89b4fa" }
 
 border_symbol = "│"
 border_style  = { fg = "#7f849c" }
@@ -26,20 +26,20 @@ border_style  = { fg = "#7f849c" }
 syntect_theme = "~/.config/bat/themes/'Catppuccin Mocha.tmTheme'"
 
 [mode]
-normal_main = { fg = "white", bg = "#89b4fa", bold = true }
-normal_alt  = { fg = "#89b4fa", bg = "white"}
+normal_main = { fg = "#1e1e2d", bg = "#89b4fa", bold = true }
+normal_alt  = { fg = "#89b4fa", bg = "#1e1e2d"}
 
-select_main = { fg = "white", bg = "#a6e3a1", bold = true }
-select_alt  = { fg = "#a6e3a1", bg = "white"}
+select_main = { fg = "#1e1e2d", bg = "#a6e3a1", bold = true }
+select_alt  = { fg = "#a6e3a1", bg = "#1e1e2d"}
 
-unset_main  = { fg = "white", bg = "#f2cdcd", bold = true }
-unset_alt   = { fg = "#f2cdcd", bg = "white"}
+unset_main  = { fg = "#1e1e2d", bg = "#f2cdcd", bold = true }
+unset_alt   = { fg = "#f2cdcd", bg = "#1e1e2d"}
 
 [status]
 separator_open  = ""
 separator_close = ""
 
-progress_label  = { fg = "#1e1e2e", bold = true }
+progress_label  = { fg = "#1e1e2d", bold = true }
 progress_normal = { fg = "#89b4fa", bg = "#181825" }
 progress_error  = { fg = "#f38ba8", bg = "#181825" }
 
@@ -222,7 +222,7 @@ files = [
   { name = "PrusaSlicerGcodeViewer.ini", text = "", fg = "#fab387" },
   { name = "PrusaSlicer.ini", text = "", fg = "#fab387" },
   { name = "procfile", text = "", fg = "#7f849c" },
-  { name = "mpv.conf", text = "", fg = "#1e1e2e" },
+  { name = "mpv.conf", text = "", fg = "#1e1e2d" },
   { name = ".prettierrc.json5", text = "", fg = "#89b4fa" },
   { name = "i3status.conf", text = "", fg = "#f5e0dc" },
   { name = "prettier.config.mjs", text = "", fg = "#89b4fa" },
