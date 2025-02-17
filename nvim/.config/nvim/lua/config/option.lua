@@ -38,6 +38,10 @@ vim.keymap.set({ "n", "v" }, "x", '"_x')
 vim.keymap.set({ "n", "v" }, "X", '"_x')
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+vim.keymap.set("n", "<leader><leader>X", "<CMD>:source %<CR>")
+vim.keymap.set("n", "<leader><leader>x", ":.lua<CR>")
+vim.keymap.set("v", "<leader><leader>x", ":lua<CR>")
 ------------------------------------------
 
 ----- Custom commands ----------------------

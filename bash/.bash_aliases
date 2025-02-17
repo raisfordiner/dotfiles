@@ -16,3 +16,7 @@ alias ze='zellij'
 alias vi='nvim '
 
 alias lg='lazygit'
+
+#Run apps (I don't know why but these apps wont run w/o specific tweaks)
+alias discord='unset ELECTRON_OZONE_PLATFORM_HINT && ~/Applications/Discord/Discord &'
+alias obsidian='unset ELECTRON_OZONE_PLATFORM_HINT && ~/Applications/Obsidian/obsidian'

@@ -18,6 +18,8 @@ test -s ~/.alias && . ~/.alias || true
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
+# Set up zoxide for smart cd
+eval "$(zoxide init bash)"
 
 export EDITOR=nvim  #Neovim as default editor
 
@@ -27,7 +29,9 @@ fi
 
 source ~/.bash_functions #Utils functions using bashscript
 
-# . "$HOME/.cargo/env"
+# "sudo $HOME/.cargo/env"
 
 # export $PATH
-export PATH="$PATH:~/ShellScripts/run"
+export PATH="$PATH:~/Devspace/dev/ShellScripts/run"
+export PATH="$PATH:~/.local/bin"
+export PATH="$PATH:~/Devspace/bin"

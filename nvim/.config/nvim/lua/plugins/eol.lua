@@ -47,13 +47,34 @@ return {
 		end,
 	},
 	{
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		"rachartier/tiny-inline-diagnostic.nvim",
+		event = "VeryLazy", -- Or `LspAttach`
+		priority = 1000, -- needs to be loaded in first
 		config = function()
-			require("lsp_lines").setup()
-			vim.diagnostic.config({
-				virtual_text = false,
+			require("tiny-inline-diagnostic").setup({
+				options = {
+					add_messages = false,
+					multilines = {
+						enabled = true,
+						always_show = false,
+					},
+					show_all_diags_on_cursorline = false,
+				},
 			})
-			vim.keymap.set("", "<Leader>tvl", require("lsp_lines").toggle, { desc = "Toggle virtual lsp_lines" })
+			vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
 		end,
 	},
+	-- {
+	-- 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	-- 	config = function()
+	-- 		require("lsp_lines").setup()
+	-- 		vim.diagnostic.config({
+	-- 			virtual_text = false,
+	-- 			virtual_lines = {
+	-- 				only_current_line = true,
+	-- 			},
+	-- 		})
+	-- 		vim.keymap.set("", "<Leader>tvl", require("lsp_lines").toggle, { desc = "Toggle virtual lsp_lines" })
+	-- 	end,
+	-- },
 }
