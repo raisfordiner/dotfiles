@@ -1,3 +1,5 @@
+alias zi='__zoxide_zi "$@"' # override 'zi' from zinit
+
 alias ff='fastfetch'
 
 alias py='python3'

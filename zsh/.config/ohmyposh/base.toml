@@ -3,7 +3,7 @@ version = 3
 final_space = true
 
 [secondary_prompt]
-  template = '>> '
+  template = '| '
   foreground = 'green'
   background = 'transparent'
 
@@ -29,7 +29,7 @@ final_space = true
       style = 'full'
 
   [[blocks.segments]]
-    template = '[ git:{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</> ]'
+    template = '[ git:{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣ {{ end }}{{ if gt .Ahead 0 }}⇡ {{ end }}</>]'
     foreground = 'magenta'
     background = 'transparent'
     type = 'git'
