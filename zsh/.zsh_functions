@@ -1,0 +1,112 @@
+# Quick load for ollama
+llm() {
+    case $1 in
+    "run")
+        local num=$2
+        local up=$((num+1))
+        local model=`ollama ls | head -n$up | tail -n1 | cut -d " " -f1`
+        ollama run $model
+        ;;
+    "stop")
+        local num=$2
+        local up=$((num+1))
+        local model=`ollama ls | head -n$up | tail -n1 | cut -d " " -f1`
+        ollama stop $model
+        ;;
+    "list")
+        ollama ls
+        ;;
+    "agent")
+        ~/AnythingLLMDesktop/start
+        ;;
+    *)
+        echo -n "I don't understand you!!"
+        echo -n "Available args: run, stop, list"
+        ;;
+    esac
+}
+
+# Unified command to run script in multiple languages
+run() {
+    local keep=false
+    local file=""
+
+    # Parse arguments
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -k|--keep) keep=true;;
+            *) file="$1";;
+        esac
+        shift
+    done
+
+    if [[ -z "$file" ]]; then
+        echo "Usage: compile {file} [-k|--keep]"
+        return 1
+    fi
+
+    # Get file extension and base name
+    local extension="${file##*.}"
+    local filename="${file%.*}"
+
+    # Compilation and execution based on file extension
+    case "$extension" in
+        c|cpp)
+            local outfile="${filename}.out"
+            g++ "$file" -o "$outfile"
+            if [[ $? -ne 0 ]]; then
+                echo "Compilation failed."
+                return 1
+            fi
+            ./"$outfile"
+            ;;
+        py)
+            python3 "$file"
+            if [[ $? -ne 0 ]]; then
+                echo "Execution failed."
+                return 1
+            fi
+            ;;
+        rs)
+            rustc "$file"
+            if [[ $? -ne 0 ]]; then
+                echo "Compilation failed."
+                return 1
+            fi
+            ./"$filename"
+            ;;
+        *)
+            echo "Unsupported file type: .$extension"
+            return 1
+            ;;
+    esac
+
+    # Remove the output file unless the keep flag is set
+    if ! $keep && [[ "$extension" == "c" || "$extension" == "cpp" ]]; then
+        rm -f "${filename}.out"
+    elif ! $keep && [[ "$extension" == "rs" ]]; then
+        rm -f "$filename"
+    fi
+}
+
+#Yazi' recommended setup from the wiki
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+# frontend for cht.sh
+chtsh() {
+    local languages=`echo "c cpp rust" | tr ' ' '\n'`
+    local selected=`echo "$languages" | fzf`
+    echo selected: $selected
+    local query
+    echo "query: "
+    read query
+    # tmux neww bash -c "curl cht.sh/$selected/`echo $query | tr ' ' '+'` | bat --paging=always"
+    curl cht.sh/$selected/`echo $query | tr ' ' '+'` | bat --paging=always
+}

@@ -1,3 +1,7 @@
+# Set PATH vars
+path+=/home/rice/Devspace/bin
+path+=/home/rice/Devspace/dev/ShellScripts/run
+
 # Plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -13,14 +17,17 @@ zinit light Aloxaf/fzf-tab
 # Load zsh completion
 autoload -U compinit && compinit
 
-# Call aliases
+# Load aliases
 . ~/.zsh_aliases
+
+# Load custom functions
+. ~/.zsh_functions
 
 # Prompt
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/base.toml)"
 
 # Set-up FZF key bindings (CTRL R for fuzzy history finder)
-source <(fzf --zsh)
+eval "$(fzf --zsh)"
 
 # Zoxide
 eval "$(zoxide init zsh)"
