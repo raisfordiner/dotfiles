@@ -16,7 +16,6 @@ return {
 					-- "rust_analyzer",
 					"gopls",
 					"pyright",
-					"tailwindcss",
 				},
 			})
 		end,
@@ -38,9 +37,6 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.pyright.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
 			})
 		end,

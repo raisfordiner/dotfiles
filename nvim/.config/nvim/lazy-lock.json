@@ -30,6 +30,7 @@
   "rust.vim": { "branch": "master", "commit": "889b9a7515db477f4cb6808bef1769e53493c578" },
   "rustaceanvim": { "branch": "master", "commit": "2b0f0b7e03751cf8ed123322f9b02d8f73fa9df7" },
   "tabout.nvim": { "branch": "master", "commit": "9a3499480a8e53dcaa665e2836f287e3b7764009" },
+  "tailwind-tools": { "branch": "master", "commit": "abe7368392345c53174979c2cf033e832de80ef8" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "aabfd85ba83d8cb8b97854dddb6345c7cf19fc2c" },
   "treesj": { "branch": "main", "commit": "48c1a7539f376fd40ceb9cf12d697040fcf90649" },
