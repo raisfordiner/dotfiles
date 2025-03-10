@@ -16,6 +16,8 @@ return {
 					-- "rust_analyzer",
 					"gopls",
 					"pyright",
+					"html",
+					"cssls",
 				},
 			})
 		end,
@@ -37,6 +39,12 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.pyright.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.html.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.cssls.setup({
 				capabilities = capabilities,
 			})
 		end,
