@@ -17,6 +17,7 @@ return {
 					"gopls",
 					"pyright",
 					"html",
+					"htmx",
 					"cssls",
 				},
 			})
@@ -42,6 +43,9 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.html.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.htmx.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.cssls.setup({
