@@ -110,3 +110,15 @@ chtsh() {
     # tmux neww bash -c "curl cht.sh/$selected/`echo $query | tr ' ' '+'` | bat --paging=always"
     curl cht.sh/$selected/`echo $query | tr ' ' '+'` | bat --paging=always
 }
+
+# get current battery status
+function batf() { #stand for Battery Fetch
+    upower -d | rg energy
+}
+
+function logout() {
+    sudo loginctl kill-session $XDG_SESSION_ID
+}
+function shutdown() {
+    sudo shutdown now
+}

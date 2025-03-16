@@ -24,3 +24,5 @@ alias discord='unset ELECTRON_OZONE_PLATFORM_HINT && ~/Applications/Discord/Disc
 alias obsidian='unset ELECTRON_OZONE_PLATFORM_HINT && ~/Applications/Obsidian/obsidian'
 
 alias gui='hyprland'
+
+alias ani='ani-cli -v'

@@ -1,6 +1,8 @@
 # Set PATH vars
 path+=/home/rice/Devspace/bin
 path+=/home/rice/Devspace/dev/ShellScripts/run
+path+=/home/rice/'jdk-23.0.2'/bin
+path+=/home/rice/go
 
 # Plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -22,6 +24,9 @@ autoload -U compinit && compinit
 
 # Load custom functions
 . ~/.zsh_functions
+
+# Load Manpage with Neovim
+export MANPAGER='nvim +Man!'
 
 # Prompt
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/base.toml)"
