@@ -1,5 +1,10 @@
 alias zi='__zoxide_zi "$@"' # override 'zi' from zinit
 
+alias zel='zellij'
+alias el='zellij' # Fux the z on qwerty
+alias zela='zellij attach'
+alias zelrma='zellij delete-all-sessions'
+
 alias ff='fastfetch'
 
 alias py='python3'
