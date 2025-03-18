@@ -43,7 +43,59 @@ return {
 				return msg
 			end
 
+			local colors = {
+				crust = "#11111b",
+				red = "#f38ba8",
+				blue = "#89b4fa",
+				green = "#a6e3a1",
+				yellow = "#eed49f",
+				pink = "#f5bde6",
+				mauve = "#c6a0f6",
+				teal = "#8bd5ca",
+				saphire = "#7dc4e4",
+				lavender = "#b7bdf8",
+				peach = "#f5a97f",
+			}
+
+			local customtheme = {
+				visual = {
+					a = { fg = colors.crust, bg = colors.mauve, gui = "bold" },
+					b = { fg = colors.mauve },
+					c = {},
+				},
+				replace = {
+					a = { fg = colors.crust, bg = colors.peach, gui = "bold" },
+					b = { fg = colors.peach },
+					c = {},
+				},
+				inactive = {
+					a = { fg = colors.blue, bg = colors.crust, gui = "bold" },
+					b = { fg = colors.lavender },
+					c = {},
+				},
+				normal = {
+					a = { fg = colors.crust, bg = colors.saphire, gui = "bold" },
+					b = { fg = colors.saphire },
+					c = {},
+				},
+				insert = {
+					a = { fg = colors.crust, bg = colors.green, gui = "bold" },
+					b = { fg = colors.green },
+					c = {},
+				},
+				command = {
+					a = { fg = colors.crust, bg = colors.red, gui = "bold" },
+					b = { fg = colors.red },
+					c = {},
+				},
+			}
+
 			require("lualine").setup({
+				options = {
+					theme = customtheme,
+					section_separators = { left = "", right = "" },
+					component_separators = { left = "|", right = "|" },
+				},
 				sections = {
 					lualine_a = { vim_logo, "mode" },
 					lualine_b = { "filename", "diagnostics", "searchcount" },

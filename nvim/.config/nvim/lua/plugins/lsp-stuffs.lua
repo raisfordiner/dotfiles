@@ -15,6 +15,7 @@ return {
 					"clangd",
 					-- "rust_analyzer",
 					"gopls",
+					"templ",
 					"pyright",
 					"html",
 					"htmx",
@@ -37,6 +38,9 @@ return {
 			})
 			-- lspconfig.cmake.setup {}
 			lspconfig.gopls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.templ.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.pyright.setup({
