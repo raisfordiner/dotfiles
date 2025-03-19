@@ -11,27 +11,28 @@
 # ridden in every subshell.
 
 # Some shell setting
-set -o ignoreeof #Disable the ctrl-d (Avoid exit on accident), use 'exit' command instead
 
 test -s ~/.alias && . ~/.alias || true
-[ "$SIMPLE_SHELL" = "false" ] || eval "$(starship init bash)"
 
-# Set up fzf key bindings and fuzzy completion
-eval "$(fzf --bash)"
-# Set up zoxide for smart cd
-eval "$(zoxide init bash)"
+## Set up fzf key bindings and fuzzy completion
+#eval "$(fzf --bash)"
+## Set up zoxide for smart cd
+#eval "$(zoxide init bash)"
 
-export EDITOR=nvim  #Neovim as default editor
+#export EDITOR=nvim  #Neovim as default editor
+export EDITOR=nano  #Nano as default editor
 
 if [ -f ~/.bash_aliases ]; then
 . ~/.bash_aliases
 fi
 
-source ~/.bash_functions #Utils functions using bashscript
+if [ -f ~/.bash_functions ]; then
+. ~/.bash_functions
+fi
 
 # "sudo $HOME/.cargo/env"
 
 # export $PATH
-export PATH="$PATH:~/Devspace/dev/ShellScripts/run"
-export PATH="$PATH:~/.local/bin"
-export PATH="$PATH:~/Devspace/bin"
+#export PATH="$PATH:~/Devspace/dev/ShellScripts/run"
+#export PATH="$PATH:~/.local/bin"
+#export PATH="$PATH:~/Devspace/bin"
