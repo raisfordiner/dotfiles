@@ -91,8 +91,16 @@ run() {
 
 #Yazi' recommended setup from the wiki
 function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    if [ "$ZELLIJ" = '0' ]; then
+        TERM=xterm-kitty yazi "$@" --cwd-file="$tmp"
+
+    else
+        yazi "$@" --cwd-file="$tmp"
+
+    fi
+    #
+    # yazi "$@" --cwd-file="$tmp"
 	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
 		builtin cd -- "$cwd"
 	fi

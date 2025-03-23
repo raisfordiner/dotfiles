@@ -1,25 +1,28 @@
 alias zi='__zoxide_zi "$@"' # override 'zi' from zinit
 
+# For zellij
 alias zel='zellij'
-alias el='zellij' # Fux the z on qwerty
+alias el='zellij' # F the z on qwerty
 alias zela='zellij attach'
 alias zelrs='zellij action rename-session '
 alias zelrma='zellij ka && zellij da'
 
+# Quick showoff
 alias ff='fastfetch'
 
+# Tools
 alias py='python3'
 alias vi='nvim '
 alias lg='lazygit'
 
-
-alias dir='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize -F'
-alias dira='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize -F -a'
-alias ls='eza --color=always --icons=always --no-time --no-user --no-filesize -F --no-permissions'
-alias lsa='eza --color=always --icons=always --no-time --no-user --no-filesize -F --no-permissions -a'
-alias tree='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize -F --no-permissions --tree'
-alias treea='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize -F --no-permissions --tree -a'
-
+# System nav
+alias dir='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize --sort=extension -F'
+alias dira='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize --sort=extension -F -a'
+alias ls='eza --color=always --icons=always --no-time --no-user --no-filesize --sort=extension -F --no-permissions'
+alias lsa='eza --color=always --icons=always --no-time --no-user --no-filesize --sort=extension -F --no-permissions -a'
+alias tree='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize --sort=extension -F --no-permissions --tree'
+alias treea='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize --sort=extension -F --no-permissions --tree -a'
+# ---
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -28,7 +31,10 @@ alias .....="cd ../../../.."
 #Run apps (I don't know why but these apps wont run w/o specific tweaks)
 alias discord='unset ELECTRON_OZONE_PLATFORM_HINT && ~/Applications/Discord/Discord &'
 alias obsidian='unset ELECTRON_OZONE_PLATFORM_HINT && ~/Applications/Obsidian/obsidian'
+alias floorp='~/Applications/floorp/floorp &'
 
+# Sessions
 alias gui='hyprland'
 
+# Miscs
 alias ani='ani-cli -v'
