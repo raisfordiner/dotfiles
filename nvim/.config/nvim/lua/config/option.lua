@@ -2,6 +2,7 @@
 -- vim.cmd("set guicursor=i:ver25-iCursor")
 vim.cmd("set termguicolors")
 -- vim.cmd("set expandtab")
+vim.cmd("set nowrap")
 vim.cmd("set autoindent")
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
@@ -42,6 +43,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader><leader>X", "<CMD>:source %<CR>")
 vim.keymap.set("n", "<leader><leader>x", ":.lua<CR>")
 vim.keymap.set("v", "<leader><leader>x", ":lua<CR>")
+
+vim.keymap.set("v", "Y", '"+y')
 ------------------------------------------
 
 ----- Custom commands ----------------------
