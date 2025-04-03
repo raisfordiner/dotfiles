@@ -24,7 +24,7 @@ return {
 		"nvim-lualine/lualine.nvim",
 		config = function()
 			local function vim_logo()
-				return [[  ]]
+				return [[  ]]
 			end
 
 			local function lsp_status()
