@@ -14,6 +14,7 @@ return {
 	},
 	{
 		"ricefordinr/yet-another-surround.nvim",
+		enabled = true,
 		config = function()
 			require("surround").setup()
 		end,
@@ -50,6 +51,7 @@ return {
 		priority = 1000, -- needs to be loaded in first
 		config = function()
 			require("tiny-inline-diagnostic").setup({
+				preset = "nonerdfont",
 				options = {
 					add_messages = false,
 					multilines = {
