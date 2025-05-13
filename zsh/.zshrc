@@ -1,8 +1,11 @@
+typeset -U path
 # Set PATH vars
-path+=/home/rice/Devspace/bin
-path+=/home/rice/Devspace/dev/ShellScripts/run
-path+=/home/rice/'jdk-23.0.2'/bin
-path+=/home/rice/go
+path+=$HOME/devspace/bin
+path+=$HOME/'jdk-23.0.2'/bin
+path+=$HOME/go
+path+=$HOME/go/bin
+path+=$HOME/.local/bin
+path+=$HOME/applications/bin
 
 # Plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -24,6 +27,8 @@ autoload -U compinit && compinit
 
 # Load custom functions
 . ~/.zsh_functions
+
+export EDITOR=nvim
 
 # Load Manpage with Neovim
 export MANPAGER='nvim +Man!'
@@ -64,4 +69,17 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 ## SHOWOFF!!
-fastfetch
+function ff() {
+    if [[ "$TERM" = "xterm-kitty" ]]; then
+        fastfetch --kitty-direct ~/.config/fastfetch/void-logo.png --logo-width 45 --logo-height 15
+    # elif [ $TERM = foot ]; then
+    #     fastfetch --chafa ~/.config/fastfetch/void-logo.png --logo-width 50
+    else
+        fastfetch -c ~/.config/fastfetch/welcome.jsonc
+    fi
+}
+
+clear
+if [[ "$TERM" = "xterm-kitty" ]]; then
+    ff
+fi
