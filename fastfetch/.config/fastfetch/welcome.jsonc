@@ -2,14 +2,21 @@
 
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    // this is for Arch
+    // Tis is for Arch
     // "logo": {
-    //     "source": "~/.config/fastfetch/arch.txt",
+    //     "source": "~/dotfiles/fastfetch/.config/fastfetch/arch.txt",
     //     "padding": {
     //         "top": 2,
     //         "right": 6
     //     }
     // },
+    "logo": {
+        "source": "~/.config/fastfetch/void.txt",
+        "padding": {
+            "top": 2,
+            "right": 6
+        }
+    },
     "display": {
         "separator": " "
     },
