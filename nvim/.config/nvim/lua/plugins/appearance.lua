@@ -39,6 +39,17 @@ return {
         end
     },
     {
+        "rebelot/kanagawa.nvim",
+        enabled = false,
+        config = function()
+            require("kanagawa").setup({
+                theme = "lotus"
+            })
+            vim.cmd("set background=light")
+            vim.cmd("colorscheme kanagawa")
+        end
+    },
+    {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         opts = {},
@@ -69,6 +80,24 @@ return {
                     end
                 end
                 return msg
+            end
+
+            local function codeium_status()
+                local status = require('codeium.virtual_text').status()
+
+                if status.state == 'idle' then
+                    return '*/*'
+                end
+
+                if status.state == 'waiting' then
+                    return "..."
+                end
+
+                if status.state == 'completions' and status.total > 0 then
+                    return string.format('%d/%d', status.current, status.total)
+                end
+
+                return ' 0 '
             end
 
             local catppuccin = {
@@ -140,7 +169,7 @@ return {
                     lualine_b = { "filename", "diagnostics", "searchcount" },
                     lualine_c = {},
                     lualine_x = {},
-                    lualine_y = { "filetype", lsp_status },
+                    lualine_y = { "filetype", lsp_status, codeium_status },
                     lualine_z = { "progress", "location" },
                 },
                 extensions = { "neo-tree", "oil" },
