@@ -79,6 +79,16 @@ function ff() {
     fi
 }
 
+function ff2() {
+    if [[ "$TERM" = "xterm-kitty" ]]; then
+        fastfetch --kitty-direct ~/.config/fastfetch/void-old.png --logo-width 45 --logo-height 12
+    # elif [ $TERM = foot ]; then
+    #     fastfetch --chafa ~/.config/fastfetch/void-logo.png --logo-width 50
+    else
+        fastfetch -c ~/.config/fastfetch/welcome.jsonc
+    fi
+}
+
 clear
 if [[ "$TERM" = "xterm-kitty" ]]; then
     ff

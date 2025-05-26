@@ -127,6 +127,3 @@ function batf() { #stand for Battery Fetch
 function logout() {
     sudo loginctl kill-session $XDG_SESSION_ID
 }
-function shutdown() {
-    sudo shutdown now
-}

@@ -11,64 +11,64 @@ placement_strategy		center
 enable_audio_bell 		no
 
 # The basic colors
-foreground              #282828
-background              #fbf1c7
-selection_foreground    #fbf1c7
-selection_background    #504945
+foreground              #12120f
+background              #f2ecbc
+selection_foreground    #f2ecbc
+selection_background    #624c86
 background_opacity	   	1
 
 # Cursor colors
-cursor                  #282828
-cursor_text_color       #fbf1c7
+cursor                  #624283
+cursor_text_color       #f2ecbc
 cursor_shape 			block
 cursor_trail			0
 #cursor_trail_decay		0.1 0.4
 cursor_trail_start_threshold  0
 
 # URL underline color when hovering with mouse
-url_color               #9ccfd8
+url_color               #b5cbd2
 
 # Colors for marks (marked text in the terminal)
-mark1_foreground #1e1e2e
-mark1_background #b4befe
-mark2_foreground #1e1e2e
-mark2_background #cba6f7
-mark3_foreground #1e1e2e
-mark3_background #74c7ec
+mark1_foreground #f2ecbc
+mark1_background #5d57a3
+mark2_foreground #f2ecbc
+mark2_background #624c83
+mark3_foreground #f2ecbc
+mark3_background #c7d7e0
 
 # The 16 terminal colors
 
 # black
-color0 #fbf1c7
-color8 #f9f5d7
+color0 #1d1d19
+color8 #393836
 
 # red
-color1 #cc241d
-color9 #9d0006
+color1 #c84853
+color9 #c84853
 
 # green
-color2  #98971a
-color10 #79740e
+color2  #6f894e
+color10 #6f894e
 
 # yellow
-color3  #d79921
-color11 #b57614
+color3  #de9800
+color11 #de9800
 
 # blue
-color4  #458588
-color12 #076678
+color4  #4d699b
+color12 #4d699b
 
 # magenta
-color5  #b14286
-color13 #8f3f71
+color5  #766b90
+color13 #766b90
 
 # cyan
-color6  #689d6a
-color14 #427b58
+color6  #b5cbd2
+color14 #b5cbd2
 
 # white
-color7  #282828
-color15 #504945
+color7  #dcd5ac
+color15 #e2ddb0
 
 
 # BEGIN_KITTY_FONTS

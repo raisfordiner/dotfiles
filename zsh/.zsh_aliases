@@ -7,9 +7,6 @@ alias zela='zellij attach'
 alias zelrs='zellij action rename-session '
 alias zelrma='zellij ka && zellij da'
 
-# Quick showoff
-alias ff='fastfetch'
-
 # Tools
 alias py='python3'
 alias vi='nvim '
