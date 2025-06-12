@@ -19,6 +19,9 @@ vim.cmd("set scrolloff=8")
 vim.cmd("set notimeout")
 vim.cmd("set ttimeout")
 
+--- Used lualine to show mode instead
+vim.cmd("set noshowmode")
+
 --- Leaders
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"

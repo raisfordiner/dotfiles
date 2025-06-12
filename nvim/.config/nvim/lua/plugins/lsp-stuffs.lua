@@ -13,6 +13,7 @@ return {
                     --LSPs
                     "lua_ls",
                     "clangd",
+                    "zls",
                     -- "rust_analyzer",
                     "gopls",
                     "templ",
@@ -35,6 +36,9 @@ return {
                 capabilities = capabilities,
             })
             lspconfig.clangd.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.zls.setup({
                 capabilities = capabilities,
             })
             -- lspconfig.cmake.setup {}
