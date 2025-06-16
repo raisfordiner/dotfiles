@@ -18,6 +18,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 # zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/sudo/sudo.plugin.zsh
 
 # Load zsh completion
 autoload -U compinit && compinit
