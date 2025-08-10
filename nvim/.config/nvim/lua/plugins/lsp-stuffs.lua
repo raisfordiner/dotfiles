@@ -11,17 +11,17 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     --LSPs
-                    "lua_ls",
-                    "clangd",
-                    "zls",
+                    -- "lua_ls",
+                    -- "clangd",
+                    -- "zls",
                     -- "rust_analyzer",
-                    "gopls",
-                    "templ",
-                    "pyright",
-                    "html",
-                    "htmx",
-                    "cssls",
-                    "perlnavigator",
+                    -- "gopls",
+                    -- "templ",
+                    -- "pyright",
+                    -- "html",
+                    -- "htmx",
+                    -- "cssls",
+                    -- "perlnavigator",
                 },
             })
         end,
