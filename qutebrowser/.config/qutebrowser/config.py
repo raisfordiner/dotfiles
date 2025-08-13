@@ -122,7 +122,7 @@ config.set('content.local_content_can_access_file_urls', False, 'file:///home/ra
 #   - bottom
 #   - left
 #   - right
-c.tabs.position = 'left'
+c.tabs.position = 'right'
 
 # When to show the tab bar.
 # Type: String

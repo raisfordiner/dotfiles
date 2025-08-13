@@ -18,7 +18,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 # zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
-zinit snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/sudo/sudo.plugin.zsh
+if [[ "$TERM" != "xterm-256color" ]]; then #Ignore neovim term buffers
+    zinit snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/sudo/sudo.plugin.zsh
+fi
 
 # Load zsh completion
 autoload -U compinit && compinit
@@ -69,28 +71,19 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-## SHOWOFF!!
-function ff() {
-    if [[ "$TERM" = "xterm-kitty" ]]; then
-        fastfetch --kitty-direct ~/.config/fastfetch/void-logo.png --logo-width 45 --logo-height 15
-    # elif [ $TERM = foot ]; then
-    #     fastfetch --chafa ~/.config/fastfetch/void-logo.png --logo-width 50
-    else
-        fastfetch -c ~/.config/fastfetch/welcome.jsonc
-    fi
-}
-
-function ff2() {
-    if [[ "$TERM" = "xterm-kitty" ]]; then
-        fastfetch --kitty-direct ~/.config/fastfetch/void-old.png --logo-width 45 --logo-height 12
-    # elif [ $TERM = foot ]; then
-    #     fastfetch --chafa ~/.config/fastfetch/void-logo.png --logo-width 50
-    else
-        fastfetch -c ~/.config/fastfetch/welcome.jsonc
-    fi
-}
-
-clear
-if [[ "$TERM" = "xterm-kitty" ]]; then
-    ff
-fi
+#
+# ## SHOWOFF!!
+# function ff() {
+#     if [[ "$TERM" = "xterm-kitty" ]]; then
+#         fastfetch --kitty-direct ~/.config/fastfetch/void-logo.png --logo-width 45 --logo-height 15
+#     # elif [ $TERM = foot ]; then
+#     #     fastfetch --chafa ~/.config/fastfetch/void-logo.png --logo-width 50
+#     else
+#         fastfetch -c ~/.config/fastfetch/welcome.jsonc
+#     fi
+# }
+#
+# clear
+# if [[ "$TERM" = "xterm-kitty" ]]; then
+#     ff
+# fi
