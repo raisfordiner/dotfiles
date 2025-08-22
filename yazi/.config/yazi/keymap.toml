@@ -1,0 +1,9 @@
+[[mgr.prepend_keymap]]
+    on   = [ "e", "p", "l" ]
+    run  = 'shell --block -- pywal "$0"'
+    desc = "pywal - light"
+
+[[mgr.prepend_keymap]]
+    on   = [ "e", "p", "d" ]
+    run  = 'shell --block -- pywal -d "$0"'
+    desc = "pywal - dark"

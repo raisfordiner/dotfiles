@@ -38,7 +38,13 @@ return {
             lspconfig.clangd.setup({
                 capabilities = capabilities,
             })
+            -- lspconfig.ccls.setup({
+            --     capabilities = capabilities,
+            -- })
             lspconfig.zls.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.hls.setup({
                 capabilities = capabilities,
             })
             -- lspconfig.cmake.setup {}
