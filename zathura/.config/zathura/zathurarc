@@ -1,0 +1,8 @@
+include pywal
+
+set selection-clipboard clipboard
+
+map j navigate next
+map k navigate previous
+map J scroll down
+map K scroll up

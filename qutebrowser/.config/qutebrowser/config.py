@@ -17,14 +17,22 @@ def is_dark_color(hex_color):
 
 # c.colors.statusbar.normal.bg = "#00000000"
 # c.colors.statusbar.command.bg = "#00000000"
+c.colors.statusbar.normal.fg = colors["primary"]
 c.colors.statusbar.normal.bg = colors["bg"]
+c.colors.statusbar.insert.fg = colors["bg"]
+c.colors.statusbar.insert.bg = colors["primary"]
 c.colors.statusbar.command.bg = colors["bg"]
 c.colors.statusbar.command.fg = colors["fg"]
-c.colors.statusbar.normal.fg = colors["primary"]
 c.colors.statusbar.passthrough.fg = colors["primary"]
-c.colors.statusbar.url.fg = colors["primary"]
-c.colors.statusbar.url.success.https.fg = colors["primary"]
-c.colors.statusbar.url.hover.fg = colors["primary"]
+c.colors.statusbar.caret.fg = colors["bg"]
+c.colors.statusbar.caret.bg = colors["primary"]
+c.colors.statusbar.caret.selection.fg = colors["bg"]
+c.colors.statusbar.caret.selection.bg = colors["primary"]
+c.colors.statusbar.passthrough.fg = colors["bg"]
+c.colors.statusbar.passthrough.bg = colors["primary"]
+c.colors.statusbar.url.fg = colors["fg"]
+c.colors.statusbar.url.success.https.fg = colors["fg"]
+c.colors.statusbar.url.hover.fg = colors["fg"]
 # c.statusbar.show = "always"
 c.colors.tabs.even.bg = colors["bg"] # transparent tabs!!
 c.colors.tabs.odd.bg = colors["bg"]

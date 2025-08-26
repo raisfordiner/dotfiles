@@ -7,14 +7,18 @@
 config_version: 2
 settings:
   colors.webpage.bg:
-    global: '#22100e'
+    global: '#555555'
+  colors.webpage.darkmode.algorithm:
+    global: lightness-cielab
   colors.webpage.darkmode.enabled:
-    global: true
+    global: false
+  colors.webpage.darkmode.threshold.background:
+    global: 11
   tabs.position:
     global: left
   tabs.show:
     global: multiple
   tabs.width:
-    global: 15%
+    global: 30%
   window.transparent:
     global: true
