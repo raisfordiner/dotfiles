@@ -18,6 +18,13 @@ final_space = true
   newline = true
 
   [[blocks.segments]]
+    template = '[ {{ if .SSHSession }}ssh ] [ {{ end }}{{ .UserName }}@{{ .HostName }} ]'
+    foreground = 'red'
+    background = 'transparent'
+    type = 'session'
+    style = 'plain'
+
+  [[blocks.segments]]
     template = '[ {{ .Path }} ]'
     foreground = 'green'
     background = 'transparent'
@@ -40,6 +47,7 @@ final_space = true
       cache_duration = 'none'
       commit_icon = '@'
       fetch_status = true
+  
 
 # [[blocks]]
 #   type = 'rprompt'
@@ -55,6 +63,14 @@ final_space = true
 #     [blocks.segments.properties]
 #       cache_duration = 'none'
 #       threshold = 5000
+
+[[blocks]]
+  type = "docker"
+  style = "powerline"
+  powerline_symbol = ""
+  foreground = "blue"
+  background = "transparent"
+  template = " Container: {{ .Context }} "
 
 [[blocks]]
   type = 'prompt'

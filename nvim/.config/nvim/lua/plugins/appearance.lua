@@ -1,6 +1,15 @@
 return {
     {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
+        config = function ()
+            vim.cmd("colorscheme gruvbox")
+        end
+        -- opts = ...,
+    },
+    {
         'uZer/pywal16.nvim',
+        enabled = false,
         lazy = false,
         priority = 1000,
         config = function()
@@ -46,7 +55,7 @@ return {
 
             require("lualine").setup({
                 options = {
-                    theme = 'pywal16-nvim',
+                    -- theme = 'pywal16-nvim',
                     section_separators = { left = "", right = "" },
                     component_separators = { left = "|", right = "|" },
                 },

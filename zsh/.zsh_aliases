@@ -1,5 +1,8 @@
 alias zi='__zoxide_zi "$@"' # override 'zi' from zinit
 
+alias dbe='distrobox enter'
+alias dbl='distrobox list'
+
 # For zellij
 alias zel='zellij'
 alias el='zellij' # F the z on qwerty
@@ -9,16 +12,17 @@ alias zelrma='zellij ka && zellij da'
 
 # Tools
 alias py='python3'
-alias vi='nvim '
+alias vi='vim '
+alias nvi='nvim '
 alias lg='lazygit'
 
 # System nav
-alias dir='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize --sort=extension -F'
-alias dira='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize --sort=extension -F -a'
-alias ls='eza --color=always --icons=always --no-time --no-user --no-filesize --sort=extension -F --no-permissions'
-alias lsa='eza --color=always --icons=always --no-time --no-user --no-filesize --sort=extension -F --no-permissions -a'
-alias tree='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize --sort=extension -F --no-permissions --tree'
-alias treea='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize --sort=extension -F --no-permissions --tree -a'
+# alias dir='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize --sort=extension -F'
+# alias dira='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize --sort=extension -F -a'
+# alias ls='eza --color=always --icons=always --no-time --no-user --no-filesize --sort=extension -F --no-permissions'
+# alias lsa='eza --color=always --icons=always --no-time --no-user --no-filesize --sort=extension -F --no-permissions -a'
+# alias tree='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize --sort=extension -F --no-permissions --tree'
+# alias treea='eza --color=always --long --git --icons=always --no-time --no-user --no-filesize --sort=extension -F --no-permissions --tree -a'
 # ---
 alias ..="cd .."
 alias ...="cd ../.."

@@ -19,5 +19,5 @@ vim.opt.runtimepath:prepend(lazypath)
 -- Keep this exact order for good
 require("config.option")
 require("lazy").setup("plugins")
-require("config.vim-lsp")
+-- require("config.vim-lsp")
 require("config.features")
