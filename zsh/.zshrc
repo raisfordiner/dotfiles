@@ -4,6 +4,8 @@ path+=$HOME/devspace/bin
 path+=$HOME/'jdk-23.0.2'/bin
 path+=$HOME/go
 path+=$HOME/go/bin
+path+=$HOME/.cargo/bin
+path+=$HOME/.ghcup/bin
 path+=$HOME/.local/bin
 path+=$HOME/applications/bin
 
@@ -20,6 +22,9 @@ zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
 if [[ "$TERM" != "xterm-256color" ]]; then #Ignore neovim term buffers
     zinit snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/sudo/sudo.plugin.zsh
+fi
+if [[ -z ~/.local/bin/on-my-posh ]]; then
+    curl -s https://ohmyposh.dev/install.sh | bash -s
 fi
 
 # Load zsh completion
@@ -87,3 +92,4 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # if [[ "$TERM" = "xterm-kitty" ]]; then
 #     ff
 # fi
+

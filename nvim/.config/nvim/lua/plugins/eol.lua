@@ -28,6 +28,7 @@ return {
     },
     {
         "abecodes/tabout.nvim",
+        enabled = false,
         lazy = false,
         config = function()
             require("tabout").setup({
@@ -59,9 +60,10 @@ return {
         config = function()
             require("tiny-inline-diagnostic").setup({
                 preset = "nonerdfont",
+                transparent_bg =true,
                 hi = {
                     mixing_color = "None",
-                    background = "StatusLine"
+                    background = "cursorLine"
                 },
                 options = {
                     add_messages = false,

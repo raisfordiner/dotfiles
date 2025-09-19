@@ -1,0 +1,1 @@
+/home/raisfordiner/DistroBox/archbox/.cache/wal/user-qute

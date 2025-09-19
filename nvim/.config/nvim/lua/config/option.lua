@@ -26,6 +26,10 @@ vim.cmd("set noshowmode")
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.o.winborder = 'single'
+
+vim.g.autoformat = false
+
 ------------------------------------------
 
 ----- Keymapping -------------------------
