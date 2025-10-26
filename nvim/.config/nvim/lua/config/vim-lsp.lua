@@ -1,4 +1,8 @@
-local _border = "bold"
+vim.lsp.enable({
+    'lua_ls',
+    'clangd',
+    'gopls',
+})
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = _border,
@@ -9,7 +13,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 })
 
 vim.diagnostic.config({
-    float = { border = _border },
+    float = { border = "bold" },
 })
 
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

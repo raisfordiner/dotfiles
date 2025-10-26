@@ -23,7 +23,7 @@ zinit light Aloxaf/fzf-tab
 if [[ "$TERM" != "xterm-256color" ]]; then #Ignore neovim term buffers
     zinit snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/sudo/sudo.plugin.zsh
 fi
-if [[ -z ~/.local/bin/on-my-posh ]]; then
+if ! [[ -e ~/.local/bin/oh-my-posh ]]; then
     curl -s https://ohmyposh.dev/install.sh | bash -s
 fi
 
