@@ -1,6 +1,7 @@
 return {
     {
         "catppuccin/nvim",
+        enabled = false;
         name = "catppuccin",
         priority = 1000,
         config = function()
@@ -33,6 +34,19 @@ return {
             vim.defer_fn(function()
                 vim.cmd("colorscheme pywal16")
             end, 100)
+        end,
+    },
+    {
+        'projekt0n/github-nvim-theme',
+        name = 'github-theme',
+        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+            require('github-theme').setup({
+                -- ...
+            })
+
+            vim.cmd('colorscheme github_light')
         end,
     },
     {
@@ -77,11 +91,11 @@ return {
                 },
                 sections = {
                     lualine_a = { vim_logo, "mode" },
-                    lualine_b = { "filename", "diagnostics", "searchcount" },
+                    lualine_b = { "filename", "progress" },
                     lualine_c = {},
-                    lualine_x = {},
-                    lualine_y = { "filetype", lsp_status },
-                    lualine_z = { "progress", "location" },
+                    lualine_x = { "searchcount", "diagnostics" },
+                    lualine_y = { "filetype" },
+                    lualine_z = {},
                 },
                 extensions = { "neo-tree", "oil" },
             })

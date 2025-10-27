@@ -22,6 +22,9 @@ vim.cmd("set ttimeout")
 --- Used lualine to show mode instead
 vim.cmd("set noshowmode")
 
+--- Turn off the useless swapfile
+vim.cmd("set noswapfile")
+
 --- Leaders
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
